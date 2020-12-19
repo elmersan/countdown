@@ -1,0 +1,182 @@
+/* variables */
+:root {
+  --GrayishBlue: hsl(237, 18%, 59%);
+  --SoftRed: hsl(345, 95%, 68%);
+  --White: hsl(0, 0%, 100%);
+  --DarkdesaturatedBlue: hsl(236, 21%, 26%);
+  --VeryDarkBlue: hsl(235, 16%, 14%);
+  --VeryDarkMostlyBlackBlue: hsl(234, 17%, 12%);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Red Hat Text", sans-serif;
+  font-size: 14px;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.container-countdown,
+.container-countdown .countdown .item,
+.countdown .item .number,
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  height: 100vh;
+  background: var(--VeryDarkMostlyBlackBlue);
+  justify-content: space-between;
+  background-image: url(./images/bg-stars.svg);
+  position: relative;
+  padding: 140px 0 45px 0;
+  overflow: hidden;
+}
+
+.container::after {
+  content: "";
+  width: 100vw;
+  height: 195px;
+  background-image: url(./images/pattern-hills.svg);
+  background-position: -507px 0px;
+  background-repeat: no-repeat;
+  background-size: 950px 195px;
+  position: absolute;
+  bottom: 0;
+}
+
+.container-countdown p:nth-child(1) {
+  color: var(--White);
+  font-weight: 700;
+  font-size: 1.3em;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  text-align: center;
+  padding: 0 10px;
+  margin-bottom: 60px;
+}
+
+.container-countdown .countdown {
+  display: grid;
+  grid-template: 1fr / repeat(4, 1fr);
+  grid-gap: 10px;
+}
+
+.container-countdown .countdown .item {
+  width: 70px;
+  /* border: 1px solid red; */
+}
+
+.countdown .item .number {
+  background: var(--DarkdesaturatedBlue);
+  width: 71px;
+  height: 69px;
+  color: var(--SoftRed);
+  font-size: 2.5em;
+  margin: 0;
+  border-radius: 5px;
+}
+
+.prueba {
+  margin: 10px;
+  background: #58a;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle at bottom right, transparent 15px, #58a 0)
+      bottom right,
+    radial-gradient(circle at bottom left, transparent 15px, #58a 0) bottom left;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.countdown .item p {
+  color: var(--GrayishBlue);
+  letter-spacing: 3px;
+  font-size: 0.6em;
+  text-transform: uppercase;
+}
+
+.container .social {
+  display: grid;
+  grid-template: 1fr / repeat(3, 1fr);
+  color: var(--GrayishBlue);
+  grid-gap: 30px;
+  font-size: 2em;
+  z-index: 2;
+}
+
+/* media queries */
+@media only screen and (min-width: 376px) {
+  .container::after {
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .container .item .number {
+    width: 75px;
+    height: 80px;
+    font-size: 3em;
+  }
+
+  .container-countdown .countdown {
+    grid-gap: 25px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .container {
+    padding: 100px 0 45px 0;
+  }
+
+  .container::after {
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .container-countdown .countdown .item {
+    width: 148px;
+  }
+
+  .container .item .number {
+    width: 148px;
+    height: 141px;
+    font-size: 5em;
+  }
+
+  .countdown .item p {
+    font-size: 0.9em;
+  }
+}
+
+@media only screen and (max-width: 345px) {
+  .container {
+    padding-top: 10px;
+  }
+  .container-countdown .countdown {
+    grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+    grid-gap: 20px;
+  }
+
+  .container-countdown .countdown .item {
+    width: 100px;
+  }
+
+  .container .item .number {
+    width: 100px;
+    height: 95px;
+    font-size: 3em;
+  }
+}
